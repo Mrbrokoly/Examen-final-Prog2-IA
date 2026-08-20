@@ -3,6 +3,7 @@ package org.example.examenfinalprog2ia;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class ExamenFinalProg2IaApplication {
 

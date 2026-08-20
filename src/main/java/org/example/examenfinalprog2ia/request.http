@@ -1,0 +1,75 @@
+### Configuration des variables d'environnement
+@baseUrl = http://localhost:8080
+@accountId = acc-1001
+
+### ------------------------------------------------------------------
+### 1. Obtenir toutes les transactions (sans filtre par défaut)
+### ------------------------------------------------------------------
+GET {{baseUrl}}/transactions
+Accept: application/json
+
+###
+
+### 2. Filtrer les transactions de type IN (Entrées)
+GET {{baseUrl}}/transactions?type=IN
+Accept: application/json
+
+###
+
+### 3. Filtrer les transactions de type OUT (Sorties)
+GET {{baseUrl}}/transactions?type=OUT
+Accept: application/json
+
+###
+
+### ------------------------------------------------------------------
+### 4. Créer deux transactions simultanément (Une entrée et une sortie)
+### ------------------------------------------------------------------
+POST {{baseUrl}}/transaction
+Content-Type: application/json
+
+[
+  {
+    "transactionType": "IN",
+    "amount": 2500.00,
+    "reason": "Virement salaire mensuel",
+    "accountId": "{{accountId}}"
+  },
+  {
+    "transactionType": "OUT",
+    "amount": 450.75,
+    "reason": "Paiement loyer",
+    "accountId": "{{accountId}}"
+  }
+]
+
+###
+
+### 5. Créer une seule transaction
+POST {{baseUrl}}/transaction
+Content-Type: application/json
+
+[
+  {
+    "transactionType": "IN",
+    "amount": 150.00,
+    "reason": "Remboursement frais de transport",
+    "accountId": "{{accountId}}"
+  }
+]
+
+###
+
+### ------------------------------------------------------------------
+### 6. Récupérer toutes les transactions d'un compte spécifique
+### ------------------------------------------------------------------
+GET {{baseUrl}}/accounts/{{accountId}}/transactions
+Accept: application/json
+
+###
+
+### ------------------------------------------------------------------
+### 7. Obtenir le solde calculé (BigDecimal) du compte (Somme IN - OUT)
+### ------------------------------------------------------------------
+GET {{baseUrl}}/account/{{accountId}}/balance
+Accept: application/json
