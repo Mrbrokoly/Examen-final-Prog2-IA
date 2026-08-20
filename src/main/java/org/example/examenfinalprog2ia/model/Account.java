@@ -1,8 +1,7 @@
-package org.example.examenfinalprog2ia.model.account;
+package org.example.examenfinalprog2ia.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.example.examenfinalprog2ia.model.AccountType;
 
 @Getter
 @AllArgsConstructor
