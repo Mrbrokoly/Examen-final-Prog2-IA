@@ -1,4 +1,4 @@
-package model;
+package org.example.examenfinalprog2ia.model;
 
 import java.math.BigDecimal;
 import java.time.Instant;
